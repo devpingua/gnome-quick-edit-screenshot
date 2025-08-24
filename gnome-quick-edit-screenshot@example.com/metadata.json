@@ -1,0 +1,11 @@
+{
+    "uuid": "gnome-quick-edit-screenshot@example.com",
+    "name": "GNOME Quick-Edit Screenshot",
+    "description": "A powerful screenshot and annotation tool with an integrated editor.",
+    "version": 1,
+    "shell-version": [
+        "45",
+        "46"
+    ],
+    "url": "https://github.com/your-username/gnome-quick-edit-screenshot"
+}

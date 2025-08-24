@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="gnome-shell-extensions">
+  <schema id="org.gnome.shell.extensions.gnome-quick-edit-screenshot" path="/org/gnome/shell/extensions/gnome-quick-edit-screenshot/">
+    <key name="history-stack" type="as">
+      <default>[]</default>
+      <summary>A stack of the last 5 edited screenshot sessions.</summary>
+      <description>
+        Each string in the array is a JSON object containing the 'filename' of the original screenshot
+        and an 'annotations' array of all the shapes and text drawn on it.
+      </description>
+    </key>
+    <key name="screenshot-hotkey" type="as">
+      <default><![CDATA[['<Super><Shift>X']]]></default>
+      <summary>Hotkey to trigger the screenshot selection.</summary>
+      <description>The keybinding to initiate a screenshot.</description>
+    </key>
+  </schema>
+</schemalist>
