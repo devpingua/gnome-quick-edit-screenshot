@@ -1,8 +1,8 @@
 import { Extension } from 'resource:///org/gnome/shell/extensions/extension.js';
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
-import * as Shell from 'resource:///org/gnome/shell/ui/shell.js';
 import * as Gio from 'gi://Gio';
 import * as Adw from 'gi://Adw?version=1';
+import Mutter from 'gi://Mutter?version=14'; // Updated: Import Mutter for ActionMode
 
 import { EditorWindow } from './editor.js';
 
@@ -44,7 +44,7 @@ export default class QuickEditScreenshotExtension extends Extension {
             'screenshot-hotkey', // This now refers to the key in our GSettings schema
             this._settings,
             0, // No flags
-            Shell.ActionMode.NORMAL,
+            Mutter.ActionMode.NORMAL, // Updated: Use Mutter.ActionMode
             () => this._takeScreenshot()
         );
     }
@@ -87,7 +87,7 @@ export default class QuickEditScreenshotExtension extends Extension {
         // Pass the application instance to the window
         this._editor = new EditorWindow({
             application: this._app,
-            filename: filename // We'll use this filename in the next step
+            filename: filename
         });
 
         this._editor.present();
