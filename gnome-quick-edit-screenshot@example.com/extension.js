@@ -2,7 +2,6 @@ import { Extension } from 'resource:///org/gnome/shell/extensions/extension.js';
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
 import * as Gio from 'gi://Gio';
 import * as Adw from 'gi://Adw?version=1';
-import Mutter from 'gi://Mutter?version=14'; // Updated: Import Mutter for ActionMode
 
 import { EditorWindow } from './editor.js';
 
@@ -41,10 +40,10 @@ export default class QuickEditScreenshotExtension extends Extension {
         console.log(`[${this.uuid}] enabled`);
 
         Main.wm.addKeybinding(
-            'screenshot-hotkey', // This now refers to the key in our GSettings schema
+            'screenshot-hotkey',
             this._settings,
             0, // No flags
-            Mutter.ActionMode.NORMAL, // Updated: Use Mutter.ActionMode
+            1, // Corresponds to Mutter.ActionMode.NORMAL
             () => this._takeScreenshot()
         );
     }
