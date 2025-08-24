@@ -4,8 +4,7 @@ import * as Gdk from 'gi://Gdk';
 import * as Gio from 'gi://Gio';
 import GdkPixbuf from 'gi://GdkPixbuf';
 import Cairo from 'cairo';
-
-const ExtensionUtils = imports.misc.extensionUtils;
+import { ExtensionUtils } from 'resource:///org/gnome/shell/misc/extensionUtils.js';
 
 export class EditorWindow extends Adw.ApplicationWindow {
     constructor({ filename, ...params }) {
@@ -232,7 +231,8 @@ export class EditorWindow extends Adw.ApplicationWindow {
             this.set_default_size(this._screenshotPixbuf.get_width(), this._screenshotPixbuf.get_height());
             this._drawingArea.queue_draw();
         } catch (e) {
-            console.error(`[${ExtensionUtils.getCurrentExtension().uuid}] Failed to load history state:`, e);
+            const extension = ExtensionUtils.getCurrentExtension();
+            console.error(`[${extension.uuid}] Failed to load history state:`, e);
         }
     }
 }
